@@ -1,18 +1,20 @@
+
 export const gallery = document.querySelector('.gallery');
 
 export function createGalleryCards(photos) {
-//   console.log(photos);
-  return photos.map(
-    ({
-      webformatURL,
-      largeImageURL,
-      tags,
-      likes,
-      views,
-      comments,
-      downloads,
-    }) => {
-return `<div class="photo-card">
+    console.log(photos);
+  return photos
+    .map(
+      ({
+        webformatURL,
+        largeImageURL,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      }) => {
+        return `<a class="photo-card" href="${largeImageURL}">
   <img src="${webformatURL}" alt="${tags} loading="lazy" />
   <div class="info">
     <p class="info-item">
@@ -32,11 +34,12 @@ return `<div class="photo-card">
        ${downloads}
     </p>
   </div>
-</div>`;
-    }
-  ).join('');
- 
+</a>`;
+      }
+    )
+    .join('');
 }
+
 
 
 // webformatURL - ссылка на маленькое изображение для списка карточек.
