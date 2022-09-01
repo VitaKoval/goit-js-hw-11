@@ -13,6 +13,7 @@ const loadMoreBtn = document.querySelector('.load-more');
 const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
+let searchQuery = '';
 
 // слушаем форму поиска картинок
 form.addEventListener('submit', handleSubmit);
@@ -20,9 +21,19 @@ form.addEventListener('submit', handleSubmit);
 function handleSubmit(evt) {
   evt.preventDefault();
 
+   // обнулить page и totalPage
+  // page = 1;
+  // totalPage = 0;
+
   // Значение в инпуте
   const query = evt.target.elements;
-  const searchQuery = query.searchQuery.value.trim();
+  searchQuery = query.searchQuery.value.trim();
+  console.log(query)
+
+  // если ничего нет в инпуте - выйти
+  if (searchQuery.length === 0) {
+    return;
+  }
 
   // HTTP-запрос на сервер
   forFetchPixabay(searchQuery)
@@ -56,9 +67,10 @@ function handleSubmit(evt) {
     .catch(error => {
       gallery.innerHTML = '';
     });
+}
 
-  // слушаем кнопку load More
-  loadMoreBtn.addEventListener('click', handleMoreClick);
+ // слушаем кнопку load More
+ loadMoreBtn.addEventListener('click', handleMoreClick);
 
   function handleMoreClick(evt) {
     forFetchPixabay(searchQuery)
@@ -79,4 +91,3 @@ function handleSubmit(evt) {
         loadMoreBtn.classList.add('is-hidden');
       });
   }
-}

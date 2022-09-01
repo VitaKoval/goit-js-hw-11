@@ -23,7 +23,7 @@ export function forFetchPixabay(searchQuery) {
 
 export function incrementPage() {
   page += 1;
-  console.log('page', page)
+  // console.log('page', page)
 }
 
 export function onTotalPages(newTotal) {
