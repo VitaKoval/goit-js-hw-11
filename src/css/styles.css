@@ -57,7 +57,8 @@ button[type='submit']:hover {
   margin: -10px 0 -10px 0;
 }
 .gallery__item {
-  
+  text-decoration: none;
+    color: inherit;
 }
 
 .photo-card {
@@ -65,6 +66,8 @@ button[type='submit']:hover {
   margin: 10px;
  border: 1px solid #cccccc;
  border-radius: 5px;
+ text-decoration: none;
+  color: inherit;
 }
 
 .photo-card:hover {
@@ -80,19 +83,22 @@ img {
 
 .info {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   font-size: 10px;
- padding: 5px;
+ padding: 10px;
+
 }
 .info-item {
   text-align: center;
+  margin: 0 0 5px 0;
 }
 .info-item:not(:last-child) {
   margin-right: 10px;
 }
 
-.info-item b {
- 
-
+.is-hidden {
+  display: none;
 }
+
