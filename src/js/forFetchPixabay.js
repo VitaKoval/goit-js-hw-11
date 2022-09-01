@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 let page = 1;
-const per_page = 4;
+const per_page = 40;
 let totalPages = 0;
 
 axios.defaults.baseURL = 'https://pixabay.com/api';
