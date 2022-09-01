@@ -14,11 +14,17 @@ axios.defaults.params = {
 };
 
 export function forFetchPixabay(searchQuery) {
-  return axios.get('/', {
-    params: {
-      q: searchQuery,
-      page: page,
-}})
+  return axios
+    .get('/', {
+      params: {
+        q: searchQuery,
+        page: page,
+      },
+    })
+    .then(data => {
+      incrementPage();
+      return data;
+    });
 }
 
 export function incrementPage() {
@@ -26,8 +32,14 @@ export function incrementPage() {
   // console.log('page', page)
 }
 
+export function onePage() {
+  page = 1;
+}
+
 export function onTotalPages(newTotal) {
   return totalPages += newTotal;
 }
 
-
+export function zeroTotalPages() {
+  totalPages = 0;
+}
