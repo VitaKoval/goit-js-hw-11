@@ -25,7 +25,6 @@ async function handleSubmit(evt) {
   // Значение в инпуте
   const query = evt.target.elements;
   searchQuery = query.searchQuery.value.trim();
-  // console.log(query)
 
   // если ничего нет в инпуте - выйти
   if (searchQuery.length === 0) {
