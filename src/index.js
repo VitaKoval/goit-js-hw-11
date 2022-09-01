@@ -1,6 +1,5 @@
 import {
   forFetchPixabay,
-  incrementPage,
   onTotalPages,
   onePage,
   zeroTotalPages,

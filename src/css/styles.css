@@ -98,7 +98,20 @@ img {
   margin-right: 10px;
 }
 
-.is-hidden {
+.load-more.is-hidden {
   display: none;
+}
+
+.load-more {
+  display: block;
+font-size: 14px;
+  padding: 10px 20px;
+  background-color: #2ecc71;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 10px auto;
 }
 
