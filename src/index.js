@@ -53,22 +53,34 @@ async function handleSubmit(evt) {
       );
     } else {
       Notify.success(`Hooray! We found ${totalHits} images.`, {
-      position: 'center-bottom',
-    });
+        position: 'center-bottom',
+      });
     }
     gallery.innerHTML = '';
     gallery.insertAdjacentHTML('beforeend', createGalleryCards(hits));
     lightbox.refresh();
     loadMoreBtn.classList.remove('is-hidden');
-    // incrementPage();
+
+    // плавный скрол вниз после первой загрузки!
+    const { height: cardHeight } = document
+      .querySelector('.gallery')
+      .firstElementChild.getBoundingClientRect();
+
+    window.scrollBy({
+      top: cardHeight * 0.2,
+      behavior: 'smooth',
+    });
 
     let calcTotalPages = onTotalPages(hits.length);
     // console.log('calcTotalPages', calcTotalPages);
     if (calcTotalPages >= totalHits) {
       loadMoreBtn.classList.add('is-hidden');
-      Notify.info("We're sorry, but you've reached the end of search results.", {
-      position: 'center-bottom',
-    });
+      Notify.info(
+        "We're sorry, but you've reached the end of search results.",
+        {
+          position: 'center-bottom',
+        }
+      );
     }
   } catch (error) {
     console.log(error);
@@ -87,15 +99,28 @@ async function handleMoreClick(evt) {
   try {
     gallery.insertAdjacentHTML('beforeend', createGalleryCards(hits));
     lightbox.refresh();
-    // incrementPage();
+
+    // прокрутка галереи на те картинки, которые загрузились после "load more"
+    const { height: cardHeight } = document
+      .querySelector('.gallery')
+      .firstElementChild.getBoundingClientRect();
+
+    window.scrollBy({
+      top: cardHeight * 1.3,
+      behavior: 'smooth',
+    });
+
     let calcTotalPages = onTotalPages(hits.length);
     // console.log('calcTotalPages', calcTotalPages);
 
     if (calcTotalPages >= totalHits) {
       loadMoreBtn.classList.add('is-hidden');
-      Notify.info("We're sorry, but you've reached the end of search results.",  {
-      position: 'center-bottom',
-    });
+      Notify.info(
+        "We're sorry, but you've reached the end of search results.",
+        {
+          position: 'center-bottom',
+        }
+      );
     }
   } catch (error) {
     console.log(error);
