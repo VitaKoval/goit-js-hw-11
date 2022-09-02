@@ -8,7 +8,6 @@ import { createGalleryCards, gallery } from './js/createGalleryCards';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { buttonAfterScroll } from './buttonUp';
 
 const form = document.querySelector('#search-form');
 const loadMoreBtn = document.querySelector('.load-more');
