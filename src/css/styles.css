@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -58,15 +62,15 @@ button[type='submit']:hover {
 }
 .gallery__item {
   text-decoration: none;
-    color: inherit;
+  color: inherit;
 }
 
 .photo-card {
   width: calc((100% - 80px) / 4);
   margin: 10px;
- border: 1px solid #cccccc;
- border-radius: 5px;
- text-decoration: none;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  text-decoration: none;
   color: inherit;
 }
 
@@ -87,8 +91,7 @@ img {
   justify-content: center;
   align-items: center;
   font-size: 10px;
- padding: 10px;
-
+  padding: 10px;
 }
 .info-item {
   text-align: center;
@@ -104,7 +107,7 @@ img {
 
 .load-more {
   display: block;
-font-size: 14px;
+  font-size: 14px;
   padding: 10px 20px;
   background-color: #2ecc71;
   color: #ffffff;
@@ -119,3 +122,72 @@ font-size: 14px;
   background-color: #27ae60;
 }
 
+#scrollTop {
+  position: fixed;
+  bottom: 70px;
+  right: 50px;
+  font-size: 35px;
+  z-index: 1;
+ padding: 0;
+
+  background-color: #ff9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* .show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .show_hide {
+      opacity: 0;
+    } */
+
+#scrollTop.is-hidden {
+  opacity: 0;
+  transition: 1000ms;
+}
+
+/* display: inline-block;
+  background-color: #FF9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s,
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000; */
+
+/* #buttonUp::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+
+#buttonUp:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+
+#buttonUp:active {
+  background-color: #555;
+}
+
+#buttonUp.show {
+  opacity: 1;
+  visibility: visible;
+} */

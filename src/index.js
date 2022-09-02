@@ -8,6 +8,7 @@ import { createGalleryCards, gallery } from './js/createGalleryCards';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import { buttonAfterScroll } from './buttonUp';
 
 const form = document.querySelector('#search-form');
 const loadMoreBtn = document.querySelector('.load-more');
@@ -71,6 +72,23 @@ async function handleSubmit(evt) {
       behavior: 'smooth',
     });
 
+    // кнопка скролл вверх
+    const scrollBtn = document.querySelector('#scrollTop');
+
+    window.onscroll = () => {
+      if (window.scrollY > 300) {
+        console.log(window.scrollY);
+        scrollBtn.classList.remove('is-hidden');
+      } else if (window.scrollY < 300) {
+        scrollBtn.classList.add('is-hidden');
+      }
+    };
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo(0, 0);
+    });
+
+    //   считаем количество загруженных картинок
     let calcTotalPages = onTotalPages(hits.length);
     // console.log('calcTotalPages', calcTotalPages);
     if (calcTotalPages >= totalHits) {
