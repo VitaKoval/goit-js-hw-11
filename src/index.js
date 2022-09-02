@@ -106,7 +106,7 @@ async function handleMoreClick(evt) {
       .firstElementChild.getBoundingClientRect();
 
     window.scrollBy({
-      top: cardHeight * 1.3,
+      top: cardHeight * 2,
       behavior: 'smooth',
     });
 
